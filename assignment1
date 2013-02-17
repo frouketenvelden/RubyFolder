@@ -1,0 +1,40 @@
+# Assignment 1
+# 17.02.2013
+# Frouke ten Velden
+
+
+# Create class: Session
+
+class  Session
+
+# attr_accessor: Creates reader and writer methods see p. 72 3.4 of Book - Well Rounded Rubyst
+
+	attr_accessor :number
+	attr_accessor :name
+
+# Define method initialize: will be executed 
+# every time a new session object is created
+		def	initialize(number, name)
+# Create instance variables @number, @name		
+			@number = number
+			@name = name
+			#puts "--------"
+		end
+
+end	
+
+# Create global variables of type Array(list) $names and $sessions
+# %w removes the necesity of adding " and , signs for array.
+
+$names = %w[[Person1|Mail1] [Person2|Mail2] [Person3|Mail3] [Person4|Mail4]]
+$times = %w[9:00 11:00 13:00 17:00]
+$sessions = []
+$populate_sessions = 4.times do |a|
+	a_name = $names.shuffle!.pop
+	a_time = $times.shuffle!.pop
+	$sessions << Session.new(a, a_name)
+print "Session ", [a+1], ": ",  a_name, " at ", a_time
+puts "" # to do a line-break
+
+end
+
